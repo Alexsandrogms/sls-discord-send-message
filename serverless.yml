@@ -1,0 +1,23 @@
+service: sls-discord-send-message
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  memorySize: 128
+  timeout: 3
+  environment:
+    DOG_API_URL: ${file(./serverless.env.yml):dev.DOG_API_URL}
+    DISCORD_WEBHOOKS_URL: ${file(./serverless.env.yml):dev.DISCORD_WEBHOOKS_URL}
+
+functions:
+  handler:
+    handler: handler.handler
+    description: Send message to Discord
+
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
