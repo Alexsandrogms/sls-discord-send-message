@@ -1,0 +1,17 @@
+{
+  "name": "discord-send-message",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn sls invoke local -f handler",
+    "deploy": "yarn sls deploy --verbose",
+    "deploy:func": "yarn sls deploy function -f handler"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.66.2"
+  }
+}

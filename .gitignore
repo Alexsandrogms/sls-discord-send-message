@@ -1,0 +1,7 @@
+# local folders
+node_modules/
+.vscode/
+.serverless/
+
+# local files
+serverless.env.yml
